@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+
+
+@theme {
+    --color-background: #f3f6f4;
+    --color-primary: 
+}
+
+.card-bg {
+    background: linear-gradient(180deg, #011205 40%, #061909 100%) ;
+}
+
+#pipsection {
+  scrollbar-width: none;
+  scrollbar-color: #acacac #a3a3a3;
+}
+
+.pip-bg {
+    /* background: linear-gradient(0deg, #f7f5f5 60%, #e5eae6 100%); */
+    background-color: #e5eae6;
+}
+
+.pip-bg:hover {
+    background-color: #dce7dd;
+    
+}
