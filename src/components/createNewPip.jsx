@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CreateNewPip = () => {
+const CreateNewPip = ({setIsModalActive}) => {
     return (
         <div
             className="flex flex-col gap-4 justify-center card-bg col-span-6 row-span-1 p-5 border border-slate-500 rounded-2xl">
@@ -8,7 +8,8 @@ const CreateNewPip = () => {
                 <img className="w-8 h-8 rounded-full group-hover:translate-x-1 transition-transform"
                     src="https://api.dicebear.com/9.x/personas/svg?seed=Felix&backgroundColor=ffdfbf" alt="user portrait" />
                 {/* <!-- Open modal when button is clicked --> */}
-                <button id="pipInputField"
+                <button
+                    onClick={() => setIsModalActive(true)}
                     className="bg-slate-950 hover:border-slate-400 cursor-pointer hover:text-white w-full py-1 px-2 text-gray-400 border border-slate-500 rounded-md">
                     <p className="text-start text-sm">What is on your mind?... Make a pip</p>
                 </button>
