@@ -1,5 +1,5 @@
 import './App.css'
-import CreateNewPip from './components/createNewPip'
+import CreateNewPip from './components/newPipToggler'
 import NavBar from './components/navbar'
 import PeopleToFollow from './components/peopleToFollow'
 import PipModal from './components/pipModal'
@@ -9,6 +9,8 @@ import TrendingPipTags from './components/trendingPipTags'
 import { useState } from 'react'
 
 function App() {
+
+  // TODO: Get initial data from mock db and create states with usestate hook. Pass to children that needs it.
 
   const [isModalActive, setIsModalActive] = useState(false)
 

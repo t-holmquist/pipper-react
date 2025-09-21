@@ -2,6 +2,7 @@ import { persons } from '../data'
 
 const PeopleToFollow = () => {
   return (
+    // TODO: Create followed state that changes color to green/etc and text to "Followed" based on the user click on a specific button - maybe Id.
     <div className="gap-6 flex flex-col p-6 col-span-3 row-span-3 card-bg rounded-2xl">
           <h3 className="font-bold text-lg text-white">People you might want to follow</h3>
           {persons.map(({id, name, handle, avatar}) => (

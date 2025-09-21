@@ -14,6 +14,7 @@ const PipModal = ({setIsModalActive}) => {
                 <div className="flex flex-col gap-4">
                     <h3 className="text-2xl font-bold">Make a pip to the world</h3>
                     {/* <!-- Get user input from form --> */}
+                    {/* TODO: Create onsubmit function that adds a pip to the mock db via the state setter prop it should recieve from app.jsx */}
                     <form id="pipform" method="post" className="flex flex-col gap-3">
                         <label for="username">Username</label>
                         <input id="username" name="username" className="border border-slate-500 p-1 rounded-md" type="text" />

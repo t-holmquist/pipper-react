@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CreateNewPip = ({setIsModalActive}) => {
+const NewPipToggler = ({setIsModalActive}) => {
     return (
         <div
             className="flex flex-col gap-4 justify-center card-bg col-span-6 row-span-1 p-5 border border-slate-500 rounded-2xl">
@@ -45,4 +45,4 @@ const CreateNewPip = ({setIsModalActive}) => {
     )
 }
 
-export default CreateNewPip
+export default NewPipToggler

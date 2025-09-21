@@ -19,6 +19,7 @@ const PipSection = () => {
                                     <p className="text-xs">{timestamp.slice(5, 16)}</p>
                                     {/* Render delete button if the user is Felix */}
                                     {avatar.toLowerCase().includes('felix') && (
+                                        // TODO: Create delete pip function that takes an id to delete pip from mock database
                                         <button className="delete h-fit p-1 border border-slate-500 cursor-pointer hover:bg-red-500 hover:text-white rounded-lg text-xs">Delete</button>
                                     )}
                                 </div>
@@ -28,6 +29,7 @@ const PipSection = () => {
                     ))}
                 </div>
                 <div className="flex justify-center w-full py-3">
+                    {/* TODO: Create a pip function that gets and maybe slices the 5 most recent pips. When called again it includes 5 more */}
                     <button className="bg-black text-white w-fit rounded-lg py-1 px-2 hover:bg-slate-800 cursor-pointer">Show more</button>
                 </div>
             </ul>
