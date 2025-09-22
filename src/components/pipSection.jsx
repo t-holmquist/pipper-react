@@ -1,5 +1,17 @@
 
-const PipSection = ({pips}) => {
+const PipSection = ({pips, setPips}) => {
+
+
+    const deletePip = (id) => {
+
+        // Filter out the id that the user clicks on and therefore it is removed from the pips array
+        setPips(pips.filter(pip => pip.id !== id ))
+        
+    }
+
+
+
+
     return (
         <section id='pipsection' className="grid gap-2 overflow-auto h-full col-span-6 row-span-5 rounded-2xl">
             <ul className="pipcontainer">
@@ -17,8 +29,8 @@ const PipSection = ({pips}) => {
                                     <p className="text-xs">{timestamp}</p>
                                     {/* Render delete button if the user is Felix */}
                                     {avatar.toLowerCase().includes('felix') && (
-                                        // TODO: Create delete pip function that takes an id to delete pip from mock database
-                                        <button className="delete h-fit p-1 border border-slate-500 cursor-pointer hover:bg-red-500 hover:text-white rounded-lg text-xs">Delete</button>
+                                        // Calls delete pip function that takes an id to delete pip from mock database
+                                        <button onClick={() => deletePip(id)} className="delete h-fit p-1 border border-slate-500 cursor-pointer hover:bg-red-500 hover:text-white rounded-lg text-xs">Delete</button>
                                     )}
                                 </div>
                             </div>

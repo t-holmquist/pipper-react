@@ -31,7 +31,7 @@ function App() {
         {/* <!-- Trending pip tags --> */}
         <TrendingPipTags />
         {/* <!-- Pips section --> */}
-        <PipSection pips={pips} />
+        <PipSection pips={pips} setPips={setPips} />
         {/* <!-- People to follow --> */}
         <PeopleToFollow />
       </section>
