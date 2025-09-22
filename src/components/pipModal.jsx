@@ -1,6 +1,45 @@
 import React from 'react'
+import { useState } from 'react';
 
 const PipModal = ({setIsModalActive}) => {
+
+    const [username, setUsername] = useState('')
+    const [pipText, setPipText] = useState('')
+
+    
+    // Submit function to add pip
+    const submitPip = (e) => {
+        e.preventDefault();
+        
+        // Check if username is felix or Riley
+        if(username.toLowerCase() !== 'felix' && username.toLowerCase() !== 'riley') {
+
+            console.log(username.toLowerCase())
+
+            // Show error message
+            document.getElementById('errormessage').innerText = 'Wrong username'
+            return
+        }
+
+        // Check if piptext is empty
+        if(pipText == '') {
+            document.getElementById('piptexterrormessage').innerText = 'Your pip cannot be empty'
+            return
+        }
+        
+
+        // TODO: Add pip with the state setter function received here
+
+       
+        
+        
+        
+        
+
+    }
+
+
+
     return (
         <>
             {/* Overlay */}
@@ -14,15 +53,17 @@ const PipModal = ({setIsModalActive}) => {
                 <div className="flex flex-col gap-4">
                     <h3 className="text-2xl font-bold">Make a pip to the world</h3>
                     {/* <!-- Get user input from form --> */}
-                    {/* TODO: Create onsubmit function that adds a pip to the mock db via the state setter prop it should recieve from app.jsx */}
-                    <form id="pipform" method="post" className="flex flex-col gap-3">
-                        <label for="username">Username</label>
-                        <input id="username" name="username" className="border border-slate-500 p-1 rounded-md" type="text" />
+                    <form onSubmit={(e) => submitPip(e)} className="flex flex-col gap-3">
+                        <label htmlfor="username">Username</label>
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} id="username" name="username" className="border border-slate-500 outline-slate-500 p-1 rounded-md" type="text" />
                         {/* <!-- Render error message to user --> */}
-                        <p className="text-red-500" id="errormessage"></p>
-                        <label for="piptext">What do you want to pip?</label>
-                        <textarea maxlength="255" id="piptext" name="piptext"
-                            className="border border-slate-500 p-1 rounded-md min-h-40 min-w-70"></textarea>
+                        <p id="errormessage" className="text-red-500"></p>
+                        <label htmlfor="piptext">What do you want to pip?</label>
+                        <textarea value={pipText} onChange={(e) => setPipText(e.target.value)} maxLength="255" id="piptext" name="piptext"
+                            className="border border-slate-500 outline-slate-500 p-1 rounded-md min-h-40 min-w-70"></textarea>
+                        <p id="piptexterrormessage" className="text-red-500"></p>
+                        {/* <!-- Character counter --> */}
+                        <p className="text-xs self-end">{`${pipText.length}/255`}</p>
                         {/* <!-- Add photo video etc --> */}
                         <div className="flex gap-4">
                             <button type="button" className="flex cursor-pointer bg-[#093939] hover:bg-slate-950 items-center gap-2 border border-slate-500 py-1 px-2 rounded-lg">
@@ -51,10 +92,8 @@ const PipModal = ({setIsModalActive}) => {
                             </button>
                         </div>
                         {/* <!-- Submit button --> */}
-                        <button id="createPipButton" type="submit" disabled
+                        <button id="createPipButton" type="submit"
                             className="disabled:bg-gray-300 disabled:cursor-default bg-black text-white rounded-lg py-1 px-2 hover:bg-slate-800 cursor-pointer">Post pip</button>
-                        {/* <!-- Character counter --> */}
-                        <p className="text-xs" id="charactercounter"></p>
                     </form>
                 </div>
             </div>
