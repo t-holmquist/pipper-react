@@ -31,7 +31,7 @@ const PipModal = ({setIsModalActive, setPips, pips}) => {
         // Add pip with the state setter function received here
         // Manually add id, since we dont have an autoincrementing SQL database in this project
         const pipToAdd = {
-            id: pips.lenght + 1,
+            id: pips.length + 1,
             text: pipText,
             avatar: `https://api.dicebear.com/9.x/personas/svg?seed=${username}`,
             timestamp: new Date().toLocaleString('da-DK', {
