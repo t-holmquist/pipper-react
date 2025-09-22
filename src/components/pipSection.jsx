@@ -1,7 +1,5 @@
-import React from 'react'
-import { pips } from '../data'
 
-const PipSection = () => {
+const PipSection = ({pips}) => {
     return (
         <section id='pipsection' className="grid gap-2 overflow-auto h-full col-span-6 row-span-5 rounded-2xl">
             <ul className="pipcontainer">
@@ -16,7 +14,7 @@ const PipSection = () => {
                                 </div>
                                 <div className="flex gap-2 items-center">
                                     {/* Slice the month, day, hour and minute data */}
-                                    <p className="text-xs">{timestamp.slice(5, 16)}</p>
+                                    <p className="text-xs">{timestamp}</p>
                                     {/* Render delete button if the user is Felix */}
                                     {avatar.toLowerCase().includes('felix') && (
                                         // TODO: Create delete pip function that takes an id to delete pip from mock database

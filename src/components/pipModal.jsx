@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const PipModal = ({setIsModalActive}) => {
+const PipModal = ({setIsModalActive, setPips, pips}) => {
 
     const [username, setUsername] = useState('')
     const [pipText, setPipText] = useState('')
@@ -26,14 +26,29 @@ const PipModal = ({setIsModalActive}) => {
             document.getElementById('piptexterrormessage').innerText = 'Your pip cannot be empty'
             return
         }
+
+
+        // Add pip with the state setter function received here
+        // Manually add id, since we dont have an autoincrementing SQL database in this project
+        const pipToAdd = {
+            id: pips.lenght + 1,
+            text: pipText,
+            avatar: `https://api.dicebear.com/9.x/personas/svg?seed=${username}`,
+            timestamp: new Date().toLocaleString('da-DK', {
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            })
+        }
         
 
-        // TODO: Add pip with the state setter function received here
+        // Add the pip
+        setPips([pipToAdd, ...pips])
 
-       
         
-        
-        
+        // Close modal
+        setIsModalActive(false)
         
 
     }

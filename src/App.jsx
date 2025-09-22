@@ -6,18 +6,20 @@ import PipModal from './components/pipModal'
 import PipSection from './components/pipSection'
 import ProfileCard from './components/profileCard'
 import TrendingPipTags from './components/trendingPipTags'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { pipsData } from './data'
 
 function App() {
 
-  // TODO: Get initial data from mock db and create states with usestate hook. Pass to children that needs it.
-
   const [isModalActive, setIsModalActive] = useState(false)
+
+  // Gets initial data from mock db and create states with usestate hook. Passes to children that needs it.
+  const [pips, setPips] = useState(pipsData)
 
   return (
     <section className='relative flex flex-col gap-2 p-4'>
       {isModalActive && (
-        <PipModal setIsModalActive={setIsModalActive} />
+        <PipModal setIsModalActive={setIsModalActive} pips={pips} setPips={setPips} />
       )}
       <NavBar />
       {/* <!-- Main section --> */}
@@ -29,7 +31,7 @@ function App() {
         {/* <!-- Trending pip tags --> */}
         <TrendingPipTags />
         {/* <!-- Pips section --> */}
-        <PipSection />
+        <PipSection pips={pips} />
         {/* <!-- People to follow --> */}
         <PeopleToFollow />
       </section>
