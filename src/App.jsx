@@ -8,6 +8,7 @@ import ProfileCard from './components/profileCard'
 import TrendingPipTags from './components/trendingPipTags'
 import { useState, useEffect } from 'react'
 import { pipsData } from './data'
+import { AnimatePresence } from 'motion/react'
 
 function App() {
 
@@ -18,9 +19,11 @@ function App() {
 
   return (
     <section className='relative flex flex-col gap-2 p-4'>
-      {isModalActive && (
-        <PipModal setIsModalActive={setIsModalActive} pips={pips} setPips={setPips} />
-      )}
+      <AnimatePresence>
+        {isModalActive && (
+          <PipModal setIsModalActive={setIsModalActive} pips={pips} setPips={setPips} />
+        )}
+      </AnimatePresence>
       <NavBar />
       {/* <!-- Main section --> */}
       <section className="grid grid-cols-12 gap-4 grid-rows-6 h-[calc(100vh-100px)]">
